@@ -64,6 +64,15 @@ if [ -e $conda_build ]; then rm -rf $conda_build; fi
 mkdir -p $conda_build
 cp -a $conda_temp/* $conda_build/
 
+echo "-----> Instaling Kernels"
+if [ -d $build/kernels ]
+then
+  for KERNEL in $(find $build/kernels -name '*.sh')
+  do
+    bash $KERNEL
+  done
+fi
+
 echo "-----> Finished compile step"
 
 echo "-----> Create .profile.d"
