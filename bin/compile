@@ -69,7 +69,7 @@ if [ -d $build/kernels ]
 then
   for KERNEL in $(find $build/kernels -name '*.sh')
   do
-    bash $KERNEL
+    bash $KERNEL $1 $2 $3
   done
 fi
 
